@@ -1,44 +1,32 @@
 import java.util.Scanner;
-
 import static java.lang.System.in;
-
 public class Main
 {
-    public static void main(String[] args) {
-        final int ROCK = 1, SCISSOR = 2, PAPER = 3;
-        {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Player 1: Choose (1) - Rock, (2) - Scissors, or (3) - Paper: ");
-            int player1 = scan.nextInt();
-            System.out.println("Player 2: Choose (1) - Rock, (2) - Scissors, or (3) - Paper: ");
-            int player2 = scan.nextInt();
-
-            if (player1 == player2) {
-                System.out.print("It is a tie");
-            } else {
-                switch (player1) {
-                    case ROCK:
-                        if (player2 == SCISSOR)
-                            System.out.print("Player 1 wins!");
-                        else
-                            System.out.print("Player 2 wins!");
-                        break;
-                    case SCISSOR:
-                        if (player2 == PAPER)
-                            System.out.print("Player 1 wins!");
-                        else
-                            System.out.print("Player 2 wins!");
-                        break;
-                    case PAPER:
-                        if (player2 == ROCK)
-                            System.out.print("Player 1 wins!");
-                        else
-                            System.out.print("Player 2 wins!");
-                        break;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(in);
+            System.out.println("Player 1: Choose rock, scissors, or paper:");
+            String player1 = scan.next().toLowerCase();
+            System.out.println("Player 2: Choose rock, scissors, or paper:");
+            String player2 = scan.next().toLowerCase();
+            boolean done = true;
+            do {
+                if (player1.equals(player2)) {
+                    System.out.print("It is a tie");
+                } else if (player1.equals("P") && player2.equals("R")) {
+                    System.out.println("Player one wins");
+                } else if (player1.equals("S") && player2.equals("R")) {
+                    System.out.println("Player two wins");
+                } else if (player1.equals("R") && player2.equals("P")) {
+                    System.out.println("Player two wins");
+                } else if (player1.equals("R") && player2.equals("S")) {
+                    System.out.println("Player one wins");
                 }
-            }
+                done = false;
+            } while(done);
         }
-    }
+}
+
+
 
 
 
